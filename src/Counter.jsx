@@ -28,7 +28,7 @@ const Counter = ({ initialCount }) => {
   };
 
   const handleOnChange = (e) => {
-    const value = parseInt(e.target.value);
+    const value = parseInt(e.target.value) || 0;
     dispatch({
       type: ADD_FORM_INPUT,
       payload: value,
