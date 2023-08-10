@@ -9,9 +9,20 @@ const Counter = ({ initialCount }) => {
       <h1>Count is {count}</h1>
       <button onClick={() => setCount(count + 1)}>Increment</button>
       <button onClick={() => setCount(count - 1)}>Decrement</button>
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          setCount(count + numberToAdd);
+          setNumberToAdd(0);
+        }}
+      >
         <label htmlFor="number">Add Alot</label>
-        <input id="number" type="number" />
+        <input
+          value={numberToAdd || ""}
+          id="number"
+          type="number"
+          onChange={(e) => setNumberToAdd(parseInt(e.target.value))}
+        />
         <button>Add it</button>
       </form>
     </>
