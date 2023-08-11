@@ -34,6 +34,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         count: state.count + state.numberToAdd,
+        numberToAdd: 0,
       };
     case ADD_FORM_INPUT:
       return {
