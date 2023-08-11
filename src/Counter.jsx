@@ -1,3 +1,4 @@
+import { produce } from "immer";
 import { useReducer, useState } from "react";
 import reducer from "./reducer";
 import { INCREMENT, DECREMENT, NUMBER_TO_ADD, ADD_FORM_INPUT } from "./actions";
@@ -5,7 +6,7 @@ import { INCREMENT, DECREMENT, NUMBER_TO_ADD, ADD_FORM_INPUT } from "./actions";
 const Counter = ({ initialCount }) => {
   // const [count, setCount] = useState(initialCount);
   // const [numberToAdd, setNumberToAdd] = useState(0);
-  const [state, dispatch] = useReducer(reducer, {
+  const [state, dispatch] = useReducer(produce(reducer), {
     count: initialCount,
     numberToAdd: 0,
   });

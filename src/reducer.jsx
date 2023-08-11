@@ -19,30 +19,51 @@ const reducer = (state, action) => {
   // return state;
 
   // Switch/Case Logic for Reducer
+
+  // switch (action.type) {
+  //   case INCREMENT:
+  //     return {
+  //       ...state,
+  //       count: state.count + 1,
+  //     };
+  //   case DECREMENT:
+  //     return {
+  //       ...state,
+  //       count: state.count - 1,
+  //     };
+  //   case NUMBER_TO_ADD:
+  //     return {
+  //       ...state,
+  //       count: state.count + state.numberToAdd,
+  //       numberToAdd: 0,
+  //     };
+  //   case ADD_FORM_INPUT:
+  //     return {
+  //       ...state,
+  //       numberToAdd: action.payload,
+  //     };
+  //   default:
+  //     return state;
+  // }
+
+  // Using Immer to Directly Mutate State using Switch/Case
+
   switch (action.type) {
     case INCREMENT:
-      return {
-        ...state,
-        count: state.count + 1,
-      };
+      state.count = state.count + 1;
+      return;
     case DECREMENT:
-      return {
-        ...state,
-        count: state.count - 1,
-      };
+      state.count = state.count - 1;
+      return;
     case NUMBER_TO_ADD:
-      return {
-        ...state,
-        count: state.count + state.numberToAdd,
-        numberToAdd: 0,
-      };
+      state.count = state.count + state.numberToAdd;
+      state.numberToAdd = 0;
+      return;
     case ADD_FORM_INPUT:
-      return {
-        ...state,
-        numberToAdd: action.payload,
-      };
+      state.numberToAdd = action.payload;
+      return;
     default:
-      return state;
+      return;
   }
 };
 
